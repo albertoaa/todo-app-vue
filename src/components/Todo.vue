@@ -36,7 +36,7 @@
         </div>
       </div>
     </div>
-    <div class="ui bottom attached green basic button" v-show="todo.done">
+    <div class="ui bottom attached green basic button" v-show="todo.done" v-on:click="uncompleteTodo(todo)">
       Completed
     </div>
     <div class="ui bottom attached red basic button" v-show="!todo.done" v-on:click="completeTodo(todo)">
@@ -64,7 +64,11 @@
       },
       completeTodo (todo) {
         this.$emit('complete-todo', todo)
+      },
+      uncompleteTodo (todo) {
+        this.$emit('uncomplete-todo', todo)
       }
+
     }
   }
 </script>
